@@ -1,4 +1,3 @@
-/* FullPage Wrapper */
 .fullpage-container {
     background-color: #0f0f1c;
     min-height: 100vh;
@@ -6,20 +5,17 @@
     color: white;
 }
 
-/* Section Titles */
 .fullpage-container h1,
 .fullpage-container h2 {
     text-shadow: 0 0 8px #836fff44;
 }
 
-/* Recommended Product Cards Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 2rem;
 }
 
-/* Optional: animate cards on appearance */
 .product-card {
     animation: fadeInUp 0.5s ease-in-out;
 }

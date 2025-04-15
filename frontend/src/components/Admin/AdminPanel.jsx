@@ -57,8 +57,18 @@ const AdminPanel = () => {
           <div key={product._id} className="admin-product-card">
             <ProductCard product={product} />
             <div className="admin-actions">
-              <button onClick={() => setEditingProduct(product)}>Edit</button>
-              <button onClick={() => deleteProduct(product._id)}>Delete</button>
+              <button
+                className="btn btn--primary"
+                onClick={() => setEditingProduct(product)}
+              >
+                Edit
+              </button>
+              <button
+                className="btn btn--danger"
+                onClick={() => deleteProduct(product._id)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
