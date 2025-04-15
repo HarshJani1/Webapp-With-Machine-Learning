@@ -1,26 +1,43 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import './Navbar.css';
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const [isMobile, setIsMobile] = useState(false);
 
   return (
     <nav className="navbar">
-      <div className="container">
-        <Link to="/" className="logo">E-Commerce</Link>
-        <div className="nav-links">
-          {user ? (
-            <>
-              {user.role === 'admin' && <Link to="/admin">Admin</Link>}
-              <button onClick={logout}>Logout</button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <Link to="/">ML WebApp</Link>
         </div>
+
+        <ul
+          className={isMobile ? "nav-links-mobile" : "nav-links"}
+          onClick={() => setIsMobile(false)}
+        >
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+
+        <button
+          className="mobile-menu-icon"
+          onClick={() => setIsMobile(!isMobile)}
+          aria-label="Toggle navigation menu"
+        >
+          {isMobile ? (
+            <i className="fas fa-times"></i>
+          ) : (
+            <i className="fas fa-bars"></i>
+          )}
+        </button>
       </div>
     </nav>
   );

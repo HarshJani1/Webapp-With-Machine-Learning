@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductCard1 from '../components/Common/ProductCard1';
-import './FullPage.css'
+import './FullPage.css';
+import Navbar from '../components/Common/Navbar';
+
 const FullPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
@@ -53,34 +55,36 @@ const FullPage = () => {
     if (!product) return <div className="text-white text-center mt-10">Loading...</div>;
 
     return (
-        <div className="p-6 md:p-10 text-white bg-[#0f0f1c] min-h-screen">
-            <section className="mb-12">
-                <h1 className="text-3xl font-bold text-violet-400 mb-2">{product.name}</h1>
-                <h4 className="text-lg text-gray-300 mb-4">{product.description}</h4>
-                <p className="text-blue-400 font-semibold text-lg mb-2">💰 Price: ${product.price}</p>
+        <div className="fullpage-container">
+            <Navbar />
+            <div>
+                <section className="mb-12 pt-16">
+                    <h1 className="text-3xl font-bold text-violet-400 mb-2">{product.name}</h1>
+                    <h4 className="text-lg text-gray-300 mb-4">{product.description}</h4>
+                    <p className="text-blue-400 font-semibold text-lg mb-2">💰 Price: ${product.price}</p>
 
-                <div className="text-sm text-gray-400 mt-2">
-                    <p>👍 Positive Reviews: {product.positiveReviews}</p>
-                    <p>👎 Negative Reviews: {product.negativeReviews}</p>
-                </div>
-            </section>
-
-            <section>
-                <h2 className="text-2xl font-semibold text-violet-300 mb-4">
-                    🧠 Recommended Products
-                </h2>
-
-                {recommendedProducts.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {recommendedProducts.map(item => (
-                            <ProductCard1 key={item._id} product={item} />
-                        ))}
+                    <div className="text-sm text-gray-400 mt-2">
+                        <p>👍 Positive Reviews: {product.positiveReviews}</p>
+                        <p>👎 Negative Reviews: {product.negativeReviews}</p>
                     </div>
-                ) : (
-                    <p className="text-gray-500">No recommended products found</p>
-                )}
-            </section>
+                </section>
 
+                <section>
+                    <h2 className="text-2xl font-semibold text-violet-300 mb-4">
+                        🧠 Recommended Products
+                    </h2>
+
+                    {recommendedProducts.length > 0 ? (
+                        <div className="grid">
+                            {recommendedProducts.map(item => (
+                                <ProductCard1 key={item._id} product={item} />
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-gray-500">No recommended products found</p>
+                    )}
+                </section>
+            </div>
         </div>
     );
 };

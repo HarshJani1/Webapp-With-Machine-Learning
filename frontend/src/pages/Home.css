@@ -18,12 +18,10 @@ body {
   
   /* Products Grid */
   .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 2rem;
-    padding: 3rem;
-    max-width: 1200px;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;  /* spacing between product cards */
+    justify-content: center;
   }
   
   /* Product Card */
@@ -104,5 +102,11 @@ body {
   
   .thumb.down {
     color: #ff4d6d;
+  }
+  .home-page {
+    /* This margin/padding should match or exceed the navbar’s height */
+    margin-top: 80px;
+    padding: 1rem;
+    min-height: 100vh; /* optional, ensures full-page coverage */
   }
   

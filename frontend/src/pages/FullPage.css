@@ -5,6 +5,10 @@
     color: white;
 }
 
+.fullpage-container h1{
+    padding-top: 22px;
+}
+
 .fullpage-container h1,
 .fullpage-container h2 {
     text-shadow: 0 0 8px #836fff44;
