@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <Link to="/">ML WebApp</Link>
+          <Link to="/">Grocery Store</Link>
         </div>
 
         <ul
@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link to="/aboutus">About Us</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contactus">Contact</Link>
           </li>
         </ul>
 

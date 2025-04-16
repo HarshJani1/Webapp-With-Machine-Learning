@@ -16,13 +16,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-page">
+    <div>
       <Navbar />
-      <h1>Our Products</h1>
-      <div className="products-grid">
-        {products.map(product => (
-          <ProductCard1 key={product._id} product={product} />
-        ))}
+      <div className="home-page">
+        <h1>Our Products</h1>
+        <div className="products-grid">
+          {products.map(product => (
+            <ProductCard1 key={product._id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );
